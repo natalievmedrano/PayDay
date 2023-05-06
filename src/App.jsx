@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard, { dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
 import Main, { mainLoader } from "./layouts/Main";
-import { Children } from "react";
+import { logoutAction } from "./actions/logout";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +17,13 @@ const router = createBrowserRouter([
         loader: dashboardLoader,
         errorElement: <Error />,
       },
+      {
+        path: "/logout",
+        action: <logoutAction/>
+      }
     ],
   },
-  {
-    path: "*",
-    element: <Error />,
-  },
+  
 ]);
 
 function App() {
