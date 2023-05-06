@@ -7,22 +7,22 @@ import { Children } from "react";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main/>,
+    element: <Main />,
     loader: mainLoader,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
-        path: "/",
-    element: <Dashboard/>,
-    loader: dashboardLoader,
-    errorElement: <Error/>
-      }
-    ]
+        index: true,
+        element: <Dashboard />,
+        loader: dashboardLoader,
+        errorElement: <Error />,
+      },
+    ],
   },
   {
     path: "*",
-    element: <Error/>
-  }
+    element: <Error />,
+  },
 ]);
 
 function App() {
