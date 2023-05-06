@@ -4,6 +4,7 @@ import Error from "./pages/Error";
 import Main, { mainLoader } from "./layouts/Main";
 import { logoutAction } from "./actions/logout";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
