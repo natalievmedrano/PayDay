@@ -15,7 +15,11 @@ export function dashboardLoader() {
 export async function dashboardAction({ request }) {
   const data = await request.formData();
   const formData = Object.fromEntries(data);
-  localStorage.setItem("userName", JSON.stringify(formData.userName));
+  try {
+    localStorage.setItem("userName", JSON.stringify(formData.userName));
+  } catch (error) {
+    prompt("there was an error creating your account please try again")
+  }
 }
 
 const Dashboard = () => {

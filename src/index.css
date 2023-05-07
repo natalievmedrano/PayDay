@@ -49,8 +49,7 @@ svg {
   --round-lg: 25px;
   --round-full: 100vmax;
 
-  /* toast customizations */
-  --toastify-color-success: hsl(var(--accent));
+ 
 }
 
 body {
@@ -64,8 +63,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-color: hsl(var(--bkg));
-  color: hsl(var(--text));
+  background-color: black;
+  color: white;
 }
 
 /* typography */
@@ -117,7 +116,7 @@ p {
 /* links and buttons */
 
 :where(a, .btn) {
-  --color: hsl(var(--text));
+  --color: white;
   --backdrop: hsl(var(--accent));
   font: inherit;
   color: var(--color);

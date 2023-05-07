@@ -22,7 +22,7 @@ const Intro = () => {
           </button>
         </Form>
       </div>
-      <img src={illustration} alt="" />
+      <img src={illustration} alt="person" />
     </div>
   );
 };
