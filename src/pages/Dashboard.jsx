@@ -4,11 +4,13 @@ import { getData } from "../Helpers";
 
 //imports
 import Intro from "../components/intro";
+import AddBudgetForm from '../components/AddBudgetForm';
 
 //loader
 export function dashboardLoader() {
   const userName = getData("userName");
-  return { userName };
+  const budgets = getData("budgets");
+  return { userName,budgets };
 }
 
 //action
@@ -23,8 +25,26 @@ export async function dashboardAction({ request }) {
 }
 
 const Dashboard = () => {
-  const { userName } = useLoaderData();
-  return <div>{userName ? <p>{userName}</p> : <Intro />}</div>;
-};
+  const { userName, budgets } = useLoaderData();
+  return(
+    <>
+    {userName ? (
+      <div className="dashboard">
+        <h1>Welcome Back <span className="accent">{userName}!</span></h1>
+        <div className="grid-sm">
+          {/* {budgets ? () : ()} */}
+          <div className="grid-lg">
+            <div className="flex-large">
+              <AddBudgetForm/>
+            </div>
+
+          </div>
+          
+        </div>
+
+      </div>
+    ): <Intro/>}
+    </>
+  )}
 
 export default Dashboard;
