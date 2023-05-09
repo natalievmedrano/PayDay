@@ -1,6 +1,7 @@
 import { Form } from "react-router-dom";
 import illustration from "../assets/illustration.jpg"
 
+
 const Intro = () => {
   return (
     <div className="intro">
@@ -17,6 +18,7 @@ const Intro = () => {
             placeholder="Enter your name"
             aria-label="Your Name"
           />
+          <input type="hidden" name="_action" value="newUser" />
           <button type="submit" className="btn btn--dark">
             <span>create account</span>
           </button>

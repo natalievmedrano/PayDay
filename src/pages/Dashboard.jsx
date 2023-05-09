@@ -1,6 +1,6 @@
 //helpers
 import { useLoaderData } from "react-router-dom";
-import { getData } from "../Helpers";
+import { createPayment, getData } from "../Helpers";
 
 //imports
 import Intro from "../components/intro";
@@ -16,12 +16,24 @@ export function dashboardLoader() {
 //action
 export async function dashboardAction({ request }) {
   const data = await request.formData();
-  const formData = Object.fromEntries(data);
-  try {
-    localStorage.setItem("userName", JSON.stringify(formData.userName));
-  } catch (error) {
-    prompt("there was an error creating your account please try again")
+  const {_action,...values} = Object.fromEntries(data);
+
+
+  if (_action === "newUser") {
+    try {
+      localStorage.setItem("userName", JSON.stringify(values.userName));
+    } catch (error) {
+      prompt("there was an error creating your account please try again")
+    }
   }
+  if(_action === "newPayment"){
+   try {
+    createPayment({name: values.newPayment, amount: values.newPaymentAmount})
+   } catch (error) {
+    throw new Error ("There was a problem adding this payment")
+   }
+  }
+
 }
 
 const Dashboard = () => {
